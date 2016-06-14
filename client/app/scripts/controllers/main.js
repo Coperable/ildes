@@ -44,6 +44,7 @@ angular.module('slamApp')
         }, 1000);
         if($scope.summary) {
             $scope.random_participants = _.shuffle($scope.summary.participants);
+            console.log($scope.random_participants);
         }
 
     };
@@ -76,6 +77,7 @@ angular.module('slamApp')
     $scope.sliders = [];
     Slider.query(function(sliders) {
         $scope.sliders = sliders;
+        console.dir(sliders);
         $timeout(function() {
             jQuery("#home_slider_main").carousel({
                 interval: 3000
@@ -94,24 +96,32 @@ angular.module('slamApp')
         return $auth.isAuthenticated();
     };
 
-    $scope.goPresentacion = function() {
+    $scope.goEquipo = function() {
         $location.path('/');
         $timeout(function() {
-            $scope.scrollTo('acerca_de_posicion');
+            $scope.scrollTo('sec_equipo');
         }, 1000);
     };
 
-    $scope.goApoyos = function() {
+
+    $scope.goSomos = function() {
         $location.path('/');
         $timeout(function() {
-            $scope.scrollTo('sec_apoyo');
+            $scope.scrollTo('about_menu');
+        }, 1000);
+    };
+
+    $scope.goProyectos = function() {
+        $location.path('/');
+        $timeout(function() {
+            $scope.scrollTo('sec_proyectos');
         }, 1000);
     };
 
     $scope.goContacto = function() {
         $location.path('/');
         $timeout(function() {
-            $scope.scrollTo('contact_menu');
+            $scope.scrollTo('sec_contacto');
         }, 1000);
     };
 

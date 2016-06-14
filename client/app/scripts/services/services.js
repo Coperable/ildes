@@ -14,7 +14,8 @@ angular.module('slamApp')
     });
 }])
 .factory('Slider',['$resource', 'api_host', function($resource, api_host){
-    return $resource(api_host+'/api/sliders/:id', { id:'@id' }, {
+    //return $resource(api_host+'/api/sliders/:id', { id:'@id' }, {
+    return $resource('http://slam.coperable.org/api/sliders/:id', { id:'@id' }, {
         update: {
             method: 'PUT'
         }

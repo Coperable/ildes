@@ -9,21 +9,24 @@ class CreateCompetitionsTable extends Migration {
 		Schema::create('competitions', function(Blueprint $table) {
 			$table->increments('id');
             $table->string('title')->nullable();
+            $table->string('title_en')->nullable();
 
-            $table->integer('region_id')->unsigned();
+            $table->integer('region_id')->unsigned()->nullable();
             $table->foreign('region_id')->references('id')->on('regions');
 
-            $table->boolean('users_limit')->default(false);
+            $table->boolean('users_limit')->default(false)->nullable();
             $table->integer('users_amount')->nullable();
 
             $table->longText('description')->nullable();
+            $table->longText('description_en')->nullable();
             $table->longText('rules')->nullable();
+            $table->longText('rules_en')->nullable();
 			$table->dateTime('event_date')->nullable();
 
             $table->mediumtext('cover_photo')->nullable();
 
             $table->string('place')->nullable();
-            $table->integer('location_id')->unsigned();
+            $table->integer('location_id')->unsigned()->nullable();
             $table->foreign('location_id')->references('id')->on('locations');
 
             $table->boolean('active')->default(false);

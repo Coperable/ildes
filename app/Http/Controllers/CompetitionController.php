@@ -48,22 +48,24 @@ class CompetitionController extends Controller {
         $competition = new Competition;
 
         DB::transaction(function() use ($request, $competition, $user) {
+            /*
             $geo = $this->processGeoValue($request->input('location'));
             $location = Location::firstOrCreate($geo);
             $location->save();
             $competition->type = $request->input('type');
             $competition->region_id = $request->input('region_id');
+            */
             $competition->title = $request->input('title');
             $competition->title_en = $request->input('title_en');
-            $competition->title_de = $request->input('title_de');
             $competition->description = $request->input('description');
             $competition->description_en = $request->input('description_en');
-            $competition->description_de = $request->input('description_de');
             $competition->cover_photo = $request->input('cover_photo');
             
+            /*
             $competition->users_limit = $request->has('users_limit') ? $request->input('users_limit') : false;
             $competition->users_amount = $request->input('users_amount');
             $competition->place = $request->input('place');
+            */
             $competition->hashtag = $request->input('hashtag');
             $competition->facebook = $request->input('facebook');
             $competition->twitter = $request->input('twitter');
@@ -71,11 +73,12 @@ class CompetitionController extends Controller {
             $competition->youtube = $request->input('youtube');
             $competition->rules = $request->input('rules');
             $competition->rules_en = $request->input('rules_en');
-            $competition->rules_de = $request->input('rules_de');
+            /*
             $arr = explode(".", $request->input('event_date'), 2);
             $event_date = str_replace("T", " ", $arr[0]);
             $competition->event_date = Carbon::createFromFormat('Y-m-d H:i:s', $event_date);
             $competition->location_id = $location->id;
+            */
             $competition->active = true;
             $competition->save();
                  
@@ -88,6 +91,7 @@ class CompetitionController extends Controller {
         $user = User::find($request['user']['sub']);
         $competition = Competition::find($id);
         DB::transaction(function() use ($request, $competition, $user) {
+            /*
             if($request->has('location')) {
                 $pregeo = $request->input('location');
                 if(isset($pregeo['address_components'])) {
@@ -99,21 +103,23 @@ class CompetitionController extends Controller {
             }
             $competition->type = $request->input('type');
             $competition->region_id = $request->input('region_id');
+            */
             $competition->title = $request->input('title');
             $competition->title_en = $request->input('title_en');
-            $competition->title_de = $request->input('title_de');
             $competition->description = $request->input('description');
             $competition->description_en = $request->input('description_en');
-            $competition->description_de = $request->input('description_de');
             $competition->cover_photo = $request->input('cover_photo');
+            /*
             $competition->users_limit = $request->has('users_limit') ? $request->input('users_limit') : false;
             $competition->users_amount = $request->input('users_amount');
+            */
             $competition->rules = $request->input('rules');
             $competition->rules_en = $request->input('rules_en');
-            $competition->rules_de = $request->input('rules_de');
+            /*
             $arr = explode(".", $request->input('event_date'), 2);
             $event_date = str_replace("T", " ", $arr[0]);
             $competition->event_date = Carbon::createFromFormat('Y-m-d H:i:s', $event_date);
+            */
             $competition->active = true;
             $competition->save();
          

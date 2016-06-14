@@ -9,7 +9,7 @@ class CreateSlidersTable extends Migration {
 		Schema::create('sliders', function(Blueprint $table) {
 			$table->increments('id');
 
-            $table->enum('type', ['QUOTE', 'EVENT', 'SIMPLE'])->default('SIMPLE');
+            $table->enum('type', ['QUOTE', 'EVENT', 'SIMPLE'])->default('SIMPLE')->nullable();
             $table->mediumtext('title')->nullable();
             $table->mediumtext('subtitle')->nullable();
 
