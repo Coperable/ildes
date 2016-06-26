@@ -15,7 +15,7 @@
 
 		        <li class="active">
 
-		        	<a class="tab active" data-toggle="tab" role="button" data-target="#sectionA" translate="equipo">
+		        	<a class="tab active text-uppercase" data-toggle="tab" role="button" data-target="#sectionA" translate="equipo">
 		        		SOMOS
 		        	</a>
 
@@ -23,7 +23,7 @@
 
 		        <li>
 
-		        	<a class="tab" data-toggle="tab" role="button" data-target="#sectionB" translate="mision">
+		        	<a class="tab text-uppercase" data-toggle="tab" role="button" data-target="#sectionB" translate="mision">
 		        		MISIÓN 
 		        	</a>
 
@@ -31,7 +31,7 @@
 
 		        <li>
 
-		        	<a class="tab" data-toggle="tab" role="button" data-target="#sectionC" translate="hacemos">
+		        	<a class="tab text-uppercase" data-toggle="tab" role="button" data-target="#sectionC" translate="hacemos">
 		        		HACEMOS 
 		        	</a>
 
@@ -163,26 +163,20 @@
 
 	<div id="carousel_EQUIPO" class="carousel slide" data-ride="carousel">
 
-		<!-- Indicators 
-		<ol class="carousel-indicators">
-			<li data-target="#carousel_EQUIPO" data-slide-to="0" class="active"></li>
-			<li data-target="#carousel_EQUIPO" data-slide-to="1"></li>
-			<li data-target="#carousel_EQUIPO" data-slide-to="2"></li>
-		</ol> -->
-
 		<!-- Wrapper for slides -->
-		<div class="carousel-inner" role="listbox">
+		<div class="carousel-inner width_80 " role="listbox">
 
-			<div class="item active">
+			<div ng-repeat="lap in lap_participants" class="item {{$index == 0 ? 'active' : ''}}">
 
 				<div class="row col-md-12">
 					
-                    <div class="col-md-2" ng-class="{'active': $index == 0}" ng-repeat="invitado in random_participants|limitTo:6">
+                    
+                    <div class="col-md-3" ng-class="{'active': $index == 0}" ng-repeat="invitado in lap|limitTo:4">
 			            <div class="tarjeta_colaborador wow fadeInRightBig">
 
 			                <div class="image_box">
 
-			                    <a href data-toggle="modal" data-target="#miembro_01">
+			                    <a href data-toggle="modal" data-target="#member_{{invitado.id}}">
 
                                     <img ng-src="http://images.collab-dev.com/600x600/smart/slam/{{invitado.cover_photo}}" class="image-responsive">
 			                        
@@ -194,6 +188,57 @@
                 			<h4>{{invitado.name}} {{invitado.lastname}}</h4>
 
 			            </div>
+
+
+                        <div class="modal fade" id="member_{{invitado.id}}" tabindex="-1" role="dialog" aria-labelledby="miembro_01_Label">
+                            <div class="modal-dialog" role="document">
+
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                                            <span aria-hidden="true">&times;</span>
+
+                                        </button>
+
+                                        <h4 class="modal-title" id="miembro_01_Label">
+                                            <strong>
+                                            {{invitado.name}} {{invitado.lastname}}
+                                            </strong>
+                                        </h4>
+
+                                    </div>
+
+                                    <div class="modal-body">
+
+                                        <img ng-src="http://images.collab-dev.com/600x600/smart/slam/{{invitado.cover_photo}}" class="image-responsive">
+                                        <div class="mini_gap"></div>
+
+                                        <div ng-switch on="usedLanguage">
+                                            <p ng-switch-when="en_EN" ng-bind-html="newlines(invitado.about_en)"></p>
+                                            <p ng-switch-when="de_DE" ng-bind-html="newlines(invitado.about_de)"></p>
+                                            <p ng-switch-default ng-bind-html="newlines(invitado.about)"></p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="modal-footer">
+
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+
 
 			        </div>
 
@@ -227,77 +272,6 @@
 		
 	</div>
 
-	<!-- ACÁ SE ARMA UN MODAL PARA CADA MIEMBRO -->
-
-    <!-- Modal miembro_01 -->
-	<div class="modal fade" id="miembro_01" tabindex="-1" role="dialog" aria-labelledby="miembro_01_Label">
-
-		<div class="modal-dialog" role="document">
-
-			<div class="modal-content">
-
-				<div class="modal-header">
-
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-
-						<span aria-hidden="true">&times;</span>
-
-					</button>
-
-					<h4 class="modal-title" id="miembro_01_Label">
-
-						<strong>Manuel Gómez</strong> | Director
-
-					</h4>
-
-				</div>
-
-				<div class="modal-body">
-
-					<img ng-src="/images/IMG-USR01.jpg">
-
-					<div class="mini_gap"></div>
-
-				    <p>
-
-				    	Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini. 
-
-				    </p>
-					
-					<p class="links" ng-if="invitado.google">
-						
-						<i class="fa fa-caret-right fa-fw"></i>
-						
-						<a class="link_simple" ng-href="" target="_blank">
-
-							<strong>LINK</strong>
-						</a>
-
-					</p>
-					
-					<p class="links">
-
-						<!--
-						<a href="https://twitter.com/{{invitado.twitter}}" class="link_simple fa fa-2x fa-facebook-square" target="_blank" ng-if="invitado.twitter"> </a> &nbsp;
-						<a href="https://www.facebook.com/{{invitado.facebook}}" class="link_simple fa fa-2x fa-twitter-square" target="_blank" ng-if="invitado.facebook"> </a> &nbsp;
-						<a href="https://www.instagram.com/{{invitado.instagram}}" class="link_simple fa fa-2x fa-instagram-square" target="_blank" ng-if="invitado.instagram"> </a>-->
-					
-					</p>
-					
-				</div>
-
-				<div class="modal-footer">
-
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
 	<div class="mini_gap"></div>
 
 </div>
@@ -315,115 +289,64 @@
 
     <div class="mini_gap"></div>
 
-	<div class="row wow fadeInLeftBig">
+	<div class="row width_90 wow fadeInLeftBig">
+        <div class="container_proy media col-xs-12 col-sm-5 col-md-4 col-lg-3" ng-repeat="proyecto in summary.competitions">
 
-		<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 container_proy"  ng-repeat="proyecto in summary.competitions">
+            <div class="tarjeta_proyectos">
+                <div class="image_box">
+                    <img ng-src="http://images.collab-dev.com/smart/slam/{{proyecto.cover_photo}}" class="image-responsive _media__image">
+                </div>
 
-			<div class="tarjeta_proyectos">
-
-				<div class="image_box">
-
-					<a href="" data-toggle="modal" data-target="#proyecto_01">
-
-    					<img ng-src="http://images.collab-dev.com/300x/smart/slam/{{proyecto.cover_photo}}">
-
-					</a>
-
-				</div>
-
-				<div class="info_box">
-
-					<a href="" data-toggle="modal" data-target="#proyecto_01">
-
-                        <div ng-switch on="usedLanguage">
-                            <h4 class="bold" ng-switch-when="en_EN">{{proyecto.title_en}}</h4>
-                            <h4 class="bold" ng-switch-default>{{proyecto.title}}</h4>
+                <a href data-toggle="modal" data-target="#proyecto_{{proyecto.id}}">
+                    <div class="media__body">
+                        <div class="info_box">
+                            <div ng-switch on="usedLanguage">
+                                <h4 class="bold" ng-switch-when="en_EN">{{proyecto.title_en}}</h4>
+                                <h4 class="bold" ng-switch-default>{{proyecto.title}}</h4>
+                            </div>
+                            <div ng-switch on="usedLanguage">
+                                <h5 ng-switch-when="en_EN">{{proyecto.description_en|words:10}}</h5>
+                                <h5 ng-switch-default>{{proyecto.description|words:10}}</h5>
+                            </div>
                         </div>
-
-					</a>
-
-					<div class="etiquetas">
-						<i class="fa fa-tag"></i>
-						<span class="etiqueta">{{proyecto.hashtag}}</span>
-
-					</div>
-
-                    <div ng-switch on="usedLanguage">
-                        <h5 ng-switch-when="en_EN">{{proyecto.description_en|words:10}}</h5>
-                        <h5 ng-switch-default>{{proyecto.description|words:10}}</h5>
                     </div>
-
-				</div>
-
-			</div>
-
-		</div>
-
+                </a>
+            </div>
+        </div>
 
 	</div>
 
+    <div class="modal fade" id="proyecto_{{proyecto.id}}" tabindex="-1" role="dialog" aria-labelledby="proyecto_01_Label"  ng-repeat="proyecto in summary.competitions">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div ng-switch on="usedLanguage">
+                        <h4 class="bold" ng-switch-when="en_EN">{{proyecto.title_en}}</h4>
+                        <h4 class="bold" ng-switch-default>{{proyecto.title}}</h4>
+                    </div>
+                </div>
 
-	<!-- ACÁ SE ARMA UN MODAL PARA CADA PROYECTO -->
+                <div class="modal-body">
+                    <img ng-src="http://images.collab-dev.com/300x/smart/slam/{{proyecto.cover_photo}}">
+                    <div class="mini_gap"></div>
+                    <div ng-switch on="usedLanguage">
+                        <p ng-switch-when="en_EN">{{proyecto.description_en|words:10}}</p>
+                        <p ng-switch-default>{{proyecto.description|words:10}}</p>
+                    </div>
+                </div>
 
-	<!-- MODAL proyecto_01 -->
-	<div class="modal fade" id="proyecto_01" tabindex="-1" role="dialog" aria-labelledby="proyecto_01_Label">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
 
-		<div class="modal-dialog" role="document">
+            </div>
 
-			<div class="modal-content">
+        </div>
+    </div>
 
-				<div class="modal-header">
-
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-
-						<span aria-hidden="true">&times;</span>
-
-					</button>
-
-					<h4 class="modal-title" id="proyecto_01_Label">
-
-						Título de Proyecto
-
-					</h4>
-
-				</div>
-
-				<div class="modal-body">
-
-					<img src="/images/LOGO-STD.png">
-
-					<div class="mini_gap"></div>
-
-				    <p>
-
-				    	Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini. 
-
-				    </p>
-					
-					<p class="links">
-						
-						<i class="fa fa-caret-right fa-fw"></i>
-						
-						<a class="link_simple" href="" target="_blank">
-
-							<strong>LINK</strong>
-						</a>
-
-					</p>
-					
-				</div>
-
-				<div class="modal-footer">
-
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
 
     <div class="width_90">
     	
@@ -436,7 +359,7 @@
 </div>
 
 
-<div id="sec_contacto" class="seccion">
+<!--div id="sec_contacto" class="seccion">
 
 	<div class="borde_superior"></div>
 
@@ -464,7 +387,7 @@
 
 	<div class="gap"></div>
 
-</div>
+</div-->
 
 
 

@@ -1,15 +1,13 @@
 <div class="gap"></div>
 
-<!-- SEC: ACTIVIDADES -->
-<div id="sec_torneosAnteriores" class="seccion fondo_gris">
-
+<div id="sec_proyectos" class="seccion fondo_gris">
     <div class="contenedor_sec torneo_info_inside">
 
 	    <div class="titulo ">
 
 	      	<h2 class="sombra_gris_blanco">
 
-	        	<i class="fa fa-calendar fa-lg fa-fw"></i>Actividades
+	        	Proyectos
 
 	      	</h2>
 
@@ -33,15 +31,6 @@
 	    	<div class="mini_gap"></div>
 
 	    </div>
-	    <div class="form-group ">
-	    	<a class="btn btn_filtro" ng-class="{'active': !current_espacio}" href ng-click="doFilter(false)" role="button"> Todos los espacios</a>
-	    	<a class="btn btn_filtro" ng-class="{'active': espacio.code == current_espacio}" href ng-click="doFilter(espacio)" role="button" ng-repeat="espacio in espacios" > {{espacio.name}}</a>
-	    </div>
-	    <div class="form-group ">
-	    	<a class="btn btn_filtro" ng-class="{'active': !current_fecha }" href ng-click="doFilterFecha(false)" role="button"> Todas las fechas</a>
-	    	<a class="btn btn_filtro" ng-class="{'active': fecha.code == current_fecha}" href ng-click="doFilterFecha(fecha)" role="button" ng-repeat="fecha in fechas" > {{fecha.formatted}}</a>
-	    </div>
-
     	<div class="row">
 
             <div class="col-xs-12 col-sm-5 col-md-4 container_tarj_act" ng-repeat="actividad in competitions| orderBy:predicate:reverse">

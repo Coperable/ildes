@@ -1,15 +1,13 @@
 <div class="gap"></div>
 
-<!-- SEC: ACTIVIDADES -->
-<div id="sec_torneosAnteriores" class="seccion fondo_gris">
-
+<div id="sec_proyectos" class="seccion fondo_gris">
     <div class="contenedor_sec torneo_info_inside">
 
 	    <div class="titulo ">
 
 	      	<h2 class="sombra_gris_blanco">
 
-	        	<i class="fa fa-calendar fa-lg fa-fw"></i>Actividades
+	        	Proyectos
 
 	      	</h2>
 
@@ -17,29 +15,25 @@
 
 	    <div class="form-group ">
 
-	    	<a class="btn btn_filtro" href="#about_menu" role="button"><i class="fa fa-sort-alpha-asc"></i></a>
+	    	<a class="btn btn_filtro" href role="button" ng-click="direction(false)"><i class="fa fa-sort-alpha-asc"></i></a>
 
-	    	<a class="btn btn_filtro" href="#about_menu" role="button"><i class="fa fa-sort-alpha-desc"></i></a>
+	    	<a class="btn btn_filtro" href role="button" ng-click="direction(true)"><i class="fa fa-sort-alpha-desc"></i></a>
 
-	    	<a class="btn btn_filtro" href="#about_menu" role="button"><i class="fa fa-clock-o"></i> Recientes</a>
-
-	    	<a class="btn btn_filtro" href="#about_menu" role="button"><i class="icon-copa"></i> Ranking</a>
 
 	    	<div class="input-group busqueda">
 
-	    		<input type="text" class="form-control" id="direccion" placeholder="BÚSQUEDA">
+	    		<input type="text" class="form-control" placeholder="BÚSQUEDA"  ng-model="search_term" ng-enter="doSearch()">
 
-	    		<div class="input-group-addon"><i class="fa fa-search"></i></div>
+	    		<div class="input-group-addon" ng-click="doSearch()"><i class="fa fa-search"></i></div>
 
 	    	</div>
 
 	    	<div class="mini_gap"></div>
 
 	    </div>
-
     	<div class="row">
 
-    		<div class="col-xs-12 col-sm-5 col-md-4 container_tarj_act" ng-repeat="actividad in summary.competitions">
+            <div class="col-xs-12 col-sm-5 col-md-4 container_tarj_act" ng-repeat="actividad in competitions| orderBy:predicate:reverse">
 
                 <div class="tarjeta_actividad">
 
@@ -78,8 +72,11 @@
                 </div>
 
             </div>
+
 	
         </div>
+
+        <h4><strong><a href="" class="link_simple"><i class="fa fa-caret-right fa-fw"></i>Descargar programación completa</a></strong></h4>
 
 	    <div class="mini_gap"></div>
 
