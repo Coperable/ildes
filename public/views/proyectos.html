@@ -1,109 +1,117 @@
-<div class="gap"></div>
+<div class="container">
+    <div class="gap"></div>
 
-<div id="sec_proyectos" class="seccion fondo_gris">
-    <div class="contenedor_sec torneo_info_inside">
+    <div id="sec_proyectos" class="seccion fondo_gris">
+        <div class="contenedor_sec torneo_info_inside">
 
-	    <div class="titulo ">
+            <div class="titulo ">
 
-	      	<h2 class="sombra_gris_blanco text-uppercase" translate="proyectos">
+                <h2 class="sombra_gris_blanco text-uppercase" translate="proyectos">
 
-	        	Proyectos
+                    Proyectos
 
-	      	</h2>
+                </h2>
 
-	    </div>
+            </div>
 
-	    <div class="form-group ">
+            <div class="form-group ">
 
-	    	<a class="btn btn_filtro" href role="button" ng-click="direction(false)"><i class="fa fa-sort-alpha-asc"></i></a>
+                <a class="btn btn_filtro" href role="button" ng-click="direction(false)"><i class="fa fa-sort-alpha-asc"></i></a>
 
-	    	<a class="btn btn_filtro" href role="button" ng-click="direction(true)"><i class="fa fa-sort-alpha-desc"></i></a>
+                <a class="btn btn_filtro" href role="button" ng-click="direction(true)"><i class="fa fa-sort-alpha-desc"></i></a>
 
 
-	    	<div class="input-group busqueda">
+                <div class="input-group busqueda">
 
-	    		<input type="text" class="form-control" placeholder="BÚSQUEDA"  ng-model="search_term" ng-enter="doSearch()">
+                    <input type="text" class="form-control" placeholder="BÚSQUEDA"  ng-model="search_term" ng-enter="doSearch()">
 
-	    		<div class="input-group-addon" ng-click="doSearch()"><i class="fa fa-search"></i></div>
+                    <div class="input-group-addon" ng-click="doSearch()"><i class="fa fa-search"></i></div>
 
-	    	</div>
-
-	    	<div class="mini_gap"></div>
-
-	    </div>
-    	<div class="row">
-
-            <div class="col-xs-12 col-sm-4 col-md-3 container_proy " ng-repeat="proyecto in competitions| orderBy:predicate:reverse">
-
-                <div class="tarjeta_proyectos">
-                    <div class="image_box">
-                        <a href data-toggle="modal" data-target="#proyecto_{{proyecto.id}}">
-                            <img ng-src="http://images.collab-dev.com/smart/ildes/{{proyecto.cover_photo}}" class="image-responsive">
-                        </a>
-                    </div>
-
-                    <div class="info_box">
-                        <a href data-toggle="modal" data-target="#proyecto_{{proyecto.id}}">
-                            <div ng-switch on="usedLanguage">
-                                <h4 class="bold" ng-switch-when="en_EN">{{proyecto.title_en}}</h4>
-                                <h4 class="bold" ng-switch-default>{{proyecto.title}}</h4>
-                            </div>
-                        </a>
-                        <div ng-switch on="usedLanguage">
-                            <h5 ng-switch-when="en_EN">{{proyecto.description_en|words:10}}</h5>
-                            <h5 ng-switch-default>{{proyecto.description|words:10}}</h5>
-                        </div>
-                    </div>
                 </div>
 
+                <div class="mini_gap"></div>
 
-                <div class="modal fade" id="proyecto_{{proyecto.id}}" tabindex="-1" role="dialog" aria-labelledby="proyecto_01_Label"  ng-repeat="proyecto in summary.competitions">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+            </div>
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-4 col-md-3 container_proy " ng-repeat="proyecto in competitions| orderBy:predicate:reverse">
+
+                    <div class="tarjeta_proyectos">
+                        <div class="image_box">
+                            <a href data-toggle="modal" data-target="#proyecto_{{proyecto.id}}">
+                                <img ng-src="http://images.collab-dev.com/smart/ildes/{{proyecto.cover_photo}}" class="image-responsive">
+                            </a>
+                        </div>
+
+                        <div class="info_box">
+                            <a href data-toggle="modal" data-target="#proyecto_{{proyecto.id}}">
                                 <div ng-switch on="usedLanguage">
                                     <h4 class="bold" ng-switch-when="en_EN">{{proyecto.title_en}}</h4>
                                     <h4 class="bold" ng-switch-default>{{proyecto.title}}</h4>
                                 </div>
+                            </a>
+                            <div ng-switch on="usedLanguage">
+                                <h5 ng-switch-when="en_EN">{{proyecto.description_en|words:10}}</h5>
+                                <h5 ng-switch-default>{{proyecto.description|words:10}}</h5>
                             </div>
+                        </div>
+                    </div>
 
-                            <div class="modal-body">
-                                <img ng-src="http://images.collab-dev.com/300x/smart/ildes/{{proyecto.cover_photo}}">
-                                <div class="mini_gap"></div>
-                                <div ng-switch on="usedLanguage">
-                                    <p ng-switch-when="en_EN"><strong>{{proyecto.description_en}}</strong></p>
-                                    <p ng-switch-default><strong>{{proyecto.description}}</strong></p>
-                                </div>
-                                <div ng-switch on="usedLanguage">
-                                    <p ng-switch-when="en_EN">{{proyecto.rules_en}}</p>
-                                    <p ng-switch-default>{{proyecto.rules}}</p>
-                                </div>
-                            </div>
 
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <div class="modal fade" id="proyecto_{{proyecto.id}}" tabindex="-1" role="dialog" aria-labelledby="proyecto_01_Label"  ng-repeat="proyecto in summary.competitions">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <div ng-switch on="usedLanguage">
+                                        <h4 class="bold" ng-switch-when="en_EN">{{proyecto.title_en}}</h4>
+                                        <h4 class="bold" ng-switch-default>{{proyecto.title}}</h4>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <img ng-src="http://images.collab-dev.com/300x/smart/ildes/{{proyecto.cover_photo}}">
+                                    <div class="mini_gap"></div>
+                                    <div ng-switch on="usedLanguage">
+                                        <p ng-switch-when="en_EN"><strong>{{proyecto.description_en}}</strong></p>
+                                        <p ng-switch-default><strong>{{proyecto.description}}</strong></p>
+                                    </div>
+                                    <div ng-switch on="usedLanguage">
+                                        <p ng-switch-when="en_EN">{{proyecto.rules_en}}</p>
+                                        <p ng-switch-default>{{proyecto.rules}}</p>
+                                    </div>
+                                    <p class="links">
+                                        <i class="fa fa-caret-right fa-fw"></i>
+                                        <a class="link_simple" href="{{proyecto.hashtag}}" target="_blank">
+                                            <strong>{{proyecto.hashtag}}</strong>
+                                        </a>
+                                    </p>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+
                             </div>
 
                         </div>
-
                     </div>
+
+
+
+
                 </div>
 
-
-
-
+        
             </div>
 
-	
+            <div class="mini_gap"></div>
+
         </div>
 
-	    <div class="mini_gap"></div>
-
-	</div>
-
+    </div>
 </div>
 
 
