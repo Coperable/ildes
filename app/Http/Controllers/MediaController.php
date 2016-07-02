@@ -64,13 +64,13 @@ class MediaController extends Controller {
             'type' => 'IMAGE'
         ]);
         
-        $filename = 'goethe_media_'.$image->id . '.' . $image->ext;
+        $filename = 'ildes_media_'.$image->id . '.' . $image->ext;
 
         $image->name = $filename;
         $image->save();
 
         Storage::disk('local')->put($filename,  File::get($file));
-        Storage::disk('s3-slam')->put('/slam/' . $filename, file_get_contents($file), 'public');
+        Storage::disk('s3-slam')->put('/ildes/' . $filename, file_get_contents($file), 'public');
 
         return Response::json(['OK' => 1, 'filename' => $filename, 'media_id' => $image->id]);
     }
@@ -107,13 +107,13 @@ class MediaController extends Controller {
             'type' => 'IMAGE'
         ]);
         
-        $filename = 'slider_'.$image->id . '.' . $image->ext;
+        $filename = 'slider_ildes_'.$image->id . '.' . $image->ext;
 
         $image->name = $filename;
         $image->save();
 
         Storage::disk('local')->put($filename,  File::get($file));
-        Storage::disk('s3-slam')->put('/slam/' . $filename, file_get_contents($file), 'public');
+        Storage::disk('s3-slam')->put('/ildes/' . $filename, file_get_contents($file), 'public');
 
         return Response::json(['OK' => 1, 'filename' => $filename, 'media_id' => $image->id]);
     }

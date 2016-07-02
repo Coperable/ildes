@@ -11,6 +11,7 @@ use Slam\User;
 use Slam\Model\Region;
 use Slam\Model\Competition;
 use Slam\Model\Participant;
+use Slam\Model\Page;
 
 class RegionController extends Controller {
 
@@ -32,6 +33,9 @@ class RegionController extends Controller {
 	public function summary(Request $request, $regionId) {
         $region = Region::find($regionId);
 
+        $home = Page::where('is_home', '=', true)->firstOrFail();
+
+        $region->page = $home;
 
         $user = false;
         $token = $request->header('Authorization');

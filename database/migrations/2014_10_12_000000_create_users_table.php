@@ -33,6 +33,7 @@ class CreateUsersTable extends Migration {
 
 		$table->string('place')->nullable();
 		$table->mediumText('about')->nullable();
+		$table->mediumText('about_en')->nullable();
             $table->timestamps();
         });
     }

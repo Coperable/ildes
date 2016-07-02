@@ -136,6 +136,7 @@ angular.module('slamApp')
             console.log('fech ');
             $http.get(api_host+'/api/region/'+this.current_region.id+'/summary').success(function(summary_data) {
                 $rootScope.region_summary = summary_data;
+                $rootScope.page = summary_data.page;
                 $rootScope.$broadcast("region_summary", summary_data);
             });
         },

@@ -89,7 +89,6 @@ class ParticipantController extends Controller {
             $participant->place = $request->input('place');
             $participant->about = $request->input('about');
             $participant->about_en = $request->input('about_en');
-            $participant->about_de = $request->input('about_de');
             $participant->participant = 1;
 
             if($request->has('email')) {
@@ -126,7 +125,6 @@ class ParticipantController extends Controller {
             $participant->place = $request->input('place');
             $participant->about = $request->input('about');
             $participant->about_en = $request->input('about_en');
-            $participant->about_de = $request->input('about_de');
             $participant->participant = 1;
 
             $participant->email = $request->input('email');

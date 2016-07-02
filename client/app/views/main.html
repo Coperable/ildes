@@ -48,29 +48,31 @@
 		        	 <ul class="about_columns">
 
 		        	 	<li class="list right">
+                            <h4 class="uppercase" ng-switch on="usedLanguage">
+                                <strong ng-switch-when="en_EN" ng-bind-html="newlines(page.somos_main_title_en)"></strong>
+                                <strong ng-switch-default ng-bind-html="newlines(page.somos_main_title)"></strong>
+                            </h4>
 
-		        	 		<h4 class="uppercase">TÍTULO <strong>IMPORTANTE</strong></h4>
-
-	        	 			<ol><li>
-
-        	 					Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach. 
-
-	        	 			</li></ol>
+	        	 			<ol ng-switch on="usedLanguage">
+                                <li ng-switch-when="en_EN" ng-bind-html="newlines(page.somos_main_en)"></li>
+                                <li ng-switch-default ng-bind-html="newlines(page.somos_main)"></li>
+                            </ol>
 			            
 			            </li>
 
 			            <li class="list con_sangria">
 
-				            <h4><i class="fa fa-caret-right"></i>¿Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery? </h4>
-
+                            <h4 class="uppercase" ng-switch on="usedLanguage"><i class="fa fa-caret-right"></i>
+                                <span ng-switch-when="en_EN" ng-bind-html="newlines(page.somos_detail_title_en)"></span>
+                                <span ng-switch-default ng-bind-html="newlines(page.somos_detail_title)"></span>
+                            </h4>
 				            <div class="mini_gap"></div>
-
-				            Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. 
-
-				            <ol><li>
-
-				            </li></ol>
-				        
+	        	 			<div ng-switch on="usedLanguage">
+                                <p ng-switch-when="en_EN" ng-bind-html="newlines(page.somos_detail_en)"></p>
+                                <p ng-switch-default ng-bind-html="newlines(page.somos_detail)"></p>
+                            </div >
+	
+                    
 				        </li>
 
 			        </ul>
@@ -80,21 +82,33 @@
 			    <div id="sectionB" class="tab-pane fade">
 			          <ul class="about_columns">
 
-		        	 	<li class="list right">
 
-		        	 		<h4 class="uppercase">Beetroot water spinach okra water <strong>chestnut ricebean pea</strong> catsear courgette summer purslane. Water  pea sprouts <strong>fava bean</strong>. Dandelion zucchini dandelion. 
+		        	 	<li class="list right">
+                            <h4 class="uppercase" ng-switch on="usedLanguage">
+                                <strong ng-switch-when="en_EN" ng-bind-html="newlines(page.mision_main_title_en)"></strong>
+                                <strong ng-switch-default ng-bind-html="newlines(page.mision_main_title)"></strong>
+                            </h4>
+
+	        	 			<ol ng-switch on="usedLanguage">
+                                <li ng-switch-when="en_EN" ng-bind-html="newlines(page.mision_main_en)"></li>
+                                <li ng-switch-default ng-bind-html="newlines(page.mision_main)"></li>
+                            </ol>
 			            
 			            </li>
 
 			            <li class="list con_sangria">
 
-							<h4><i class="fa fa-caret-right"></i>Fennel kombu maize bamboo shoot green bean swiss chard seakale.</h4>
-							Pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.
-
-				            <ol><li>
-
-				            </li></ol>
-				        
+                            <h4 class="uppercase" ng-switch on="usedLanguage"><i class="fa fa-caret-right"></i>
+                                <span ng-switch-when="en_EN" ng-bind-html="newlines(page.mision_detail_title_en)"></span>
+                                <span ng-switch-default ng-bind-html="newlines(page.mision_detail_title)"></span>
+                            </h4>
+				            <div class="mini_gap"></div>
+	        	 			<div ng-switch on="usedLanguage">
+                                <p ng-switch-when="en_EN" ng-bind-html="newlines(page.mision_detail_en)"></p>
+                                <p ng-switch-default ng-bind-html="newlines(page.mision_detail)"></p>
+                            </div >
+	
+                    
 				        </li>
 
 			        </ul>
@@ -107,27 +121,31 @@
 			    	<ul class="about_columns">
 
 		        	 	<li class="list right">
+                            <h4 class="uppercase" ng-switch on="usedLanguage">
+                                <strong ng-switch-when="en_EN" ng-bind-html="newlines(page.hacemos_main_title_en)"></strong>
+                                <strong ng-switch-default ng-bind-html="newlines(page.hacemos_main_title)"></strong>
+                            </h4>
 
-	        	 			<h4>
-        	 					Ea horseradish azuki bean lettuce avocado asparagus okra. 
-        	 				</h4>
-
-        	 				Kohlrabi radish okra azuki bean corn fava bean mustard tigernut jÃ­cama green bean celtuce collard greens avocado quandong fennel gumbo black-eyed pea. 
-
-	        	 			<ol><li>
-
-	        	 			</li></ol>
+	        	 			<ol ng-switch on="usedLanguage">
+                                <li ng-switch-when="en_EN" ng-bind-html="newlines(page.hacemos_main_en)"></li>
+                                <li ng-switch-default ng-bind-html="newlines(page.hacemos_main)"></li>
+                            </ol>
 			            
 			            </li>
 
 			            <li class="list con_sangria">
 
-				            <h4 class="uppercase">Grape silver beet watercress potato</h4>
-                            
-                            Chickweed okra pea winter purslane coriander yarrow sweet pepper radish garlic brussels sprout groundnut summer purslane earthnut pea tomato spring onion azuki bean gourd. Gumbo kakadu plum komatsuna black-eyed pea green bean zucchini gourd winter purslane silver beet rock melon radish asparagus spinach.
-
+                            <h4 class="uppercase" ng-switch on="usedLanguage"><i class="fa fa-caret-right"></i>
+                                <span ng-switch-when="en_EN" ng-bind-html="newlines(page.hacemos_detail_title_en)"></span>
+                                <span ng-switch-default ng-bind-html="newlines(page.hacemos_detail_title)"></span>
+                            </h4>
 				            <div class="mini_gap"></div>
-				        
+	        	 			<div ng-switch on="usedLanguage">
+                                <p ng-switch-when="en_EN" ng-bind-html="newlines(page.hacemos_detail_en)"></p>
+                                <p ng-switch-default ng-bind-html="newlines(page.hacemos_detail)"></p>
+                            </div >
+	
+                    
 				        </li>
 
 			        </ul>
@@ -218,7 +236,6 @@
 
                                         <div ng-switch on="usedLanguage">
                                             <p ng-switch-when="en_EN" ng-bind-html="newlines(invitado.about_en)"></p>
-                                            <p ng-switch-when="de_DE" ng-bind-html="newlines(invitado.about_de)"></p>
                                             <p ng-switch-default ng-bind-html="newlines(invitado.about)"></p>
                                         </div>
 
@@ -335,8 +352,12 @@
                     <img ng-src="http://images.collab-dev.com/300x/smart/slam/{{proyecto.cover_photo}}">
                     <div class="mini_gap"></div>
                     <div ng-switch on="usedLanguage">
-                        <p ng-switch-when="en_EN">{{proyecto.description_en|words:10}}</p>
-                        <p ng-switch-default>{{proyecto.description|words:10}}</p>
+                        <p ng-switch-when="en_EN"><strong>{{proyecto.description_en}}</strong></p>
+                        <p ng-switch-default><strong>{{proyecto.description}}</strong></p>
+                    </div>
+                    <div ng-switch on="usedLanguage">
+                        <p ng-switch-when="en_EN">{{proyecto.rules_en}}</p>
+                        <p ng-switch-default>{{proyecto.rules}}</p>
                     </div>
                 </div>
 

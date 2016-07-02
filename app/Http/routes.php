@@ -24,6 +24,9 @@ Route::resource('api/roles', 'RoleController');
 Route::resource('api/sliders', 'SliderController');
 Route::resource('api/contacts', 'ContactController');
 
+Route::get('api/pages/home', ['uses' => 'PageController@home']);
+Route::resource('api/pages', 'PageController');
+
 Route::get('api/regions/{regionId}/competitions', ['middleware' => 'auth', 'uses' => 'RegionController@competitions']);
 
 Route::post('api/media/upload', ['middleware' => 'auth', 'uses' => 'MediaController@storeImage']);

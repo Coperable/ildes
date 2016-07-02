@@ -127,7 +127,7 @@ class AuthController extends Controller
                 $gravatar = md5(strtolower(trim($user->email)));
                 $user->photo = $gravatar;
                 $user->save();
-                Storage::disk('s3-slam')->put('/slam/profiles/' . $gravatar, file_get_contents('http://www.gravatar.com/avatar/'.$gravatar.'?d=identicon&s=150'), 'public');
+                Storage::disk('s3-slam')->put('/ildes/profiles/' . $gravatar, file_get_contents('http://www.gravatar.com/avatar/'.$gravatar.'?d=identicon&s=150'), 'public');
             }
  
 
@@ -162,7 +162,7 @@ class AuthController extends Controller
         $gravatar = md5(strtolower(trim($user->email)));
         $user->photo = $gravatar;
         $user->save();
-        Storage::disk('s3-slam')->put('/slam/profiles/' . $gravatar, file_get_contents('http://www.gravatar.com/avatar/'.$gravatar.'?d=identicon&s=150'), 'public');
+        Storage::disk('s3-slam')->put('/ildes/profiles/' . $gravatar, file_get_contents('http://www.gravatar.com/avatar/'.$gravatar.'?d=identicon&s=150'), 'public');
 
 
         return response()->json(['token' => $this->createToken($user)]);

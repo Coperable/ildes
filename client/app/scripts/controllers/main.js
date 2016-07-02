@@ -22,36 +22,6 @@ angular.module('slamApp')
         return '';
     };
 
-    $scope.setup_components = function() {
-        setTimeout(function() {
-            jQuery("#home_slider_2").carousel({
-                interval:7e3
-            });
-
-            jQuery('[data-toggle="tooltip"]').tooltip({
-                trigger: 'hover'
-		    });
-
-            jQuery('#carousel-torneos').carousel({
-                interval: 1000,
-                wrap: false
-            });
-
-            jQuery("#preloader").fadeOut("fast",function(){
-                jQuery(this).remove()
-            });
-
-
-        }, 1000);
-        if($scope.summary) {
-            $scope.random_participants = _.shuffle($scope.summary.participants);
-            $scope.calculateRandom($scope.random_participants);
-        }
-
-    };
-
-    $scope.setup_components();
-
     $scope.calculateRandom = function(participants) {
         $scope.random_participants = _.shuffle($scope.summary.participants);
 
@@ -79,6 +49,25 @@ angular.module('slamApp')
 
     };
 
+    $scope.setup_components = function() {
+        setTimeout(function() {
+            jQuery('[data-toggle="tooltip"]').tooltip({
+                trigger: 'hover'
+		    });
+
+            jQuery("#preloader").fadeOut("fast",function(){
+                jQuery(this).remove()
+            });
+        }, 1000);
+        if($scope.summary) {
+            $scope.random_participants = _.shuffle($scope.summary.participants);
+            $scope.calculateRandom($scope.random_participants);
+        }
+
+    };
+
+    $scope.setup_components();
+
     $rootScope.$on("region_summary", function(event, summary) {
         $scope.summary = summary;
         $scope.calculateRandom($scope.summary.participants);
@@ -103,12 +92,11 @@ angular.module('slamApp')
     $scope.sliders = [];
     Slider.query(function(sliders) {
         $scope.sliders = sliders;
-        console.dir(sliders);
         $timeout(function() {
             jQuery("#home_slider_main").carousel({
                 interval: 3000
             });
-        });
+        }, 0);
     });
 
 

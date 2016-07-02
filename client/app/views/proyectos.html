@@ -33,44 +33,72 @@
 	    </div>
     	<div class="row">
 
-            <div class="col-xs-12 col-sm-5 col-md-4 container_tarj_act" ng-repeat="actividad in competitions| orderBy:predicate:reverse">
+            <div class="col-xs-12 col-sm-4 col-md-3 container_proy " ng-repeat="proyecto in competitions| orderBy:predicate:reverse">
 
-                <div class="tarjeta_actividad">
-
-                    <a ng-href="/#/actividad/{{actividad.id}}">
-                        
-                        <img ng-src="http://images.collab-dev.com/300x/smart/slam/{{actividad.cover_photo}}">
-
-                    </a>
-
-                    <div class="inner">
-                        
-                        <a ng-href="/#/actividad/{{actividad.id}}">
-
-                            <h4 class="bold">{{actividad.title}}</h4>
-
+                <div class="tarjeta_proyectos">
+                    <div class="image_box">
+                        <a href data-toggle="modal" data-target="#proyecto_{{proyecto.id}}">
+                            <img ng-src="http://images.collab-dev.com/smart/slam/{{proyecto.cover_photo}}" class="image-responsive">
                         </a>
+                    </div>
 
-                        <h5>{{actividad.description|words:10}}</h5>
+                    <div class="info_box">
+                        <a href data-toggle="modal" data-target="#proyecto_{{proyecto.id}}">
+                            <div ng-switch on="usedLanguage">
+                                <h4 class="bold" ng-switch-when="en_EN">{{proyecto.title_en}}</h4>
+                                <h4 class="bold" ng-switch-default>{{proyecto.title}}</h4>
+                            </div>
+                        </a>
+                        <div ng-switch on="usedLanguage">
+                            <h5 ng-switch-when="en_EN">{{proyecto.description_en|words:10}}</h5>
+                            <h5 ng-switch-default>{{proyecto.description|words:10}}</h5>
+                        </div>
+                    </div>
+                </div>
 
-                        <div class="etiquetas" ng-if="actividad.hashtag">
 
-                            <i class="fa fa-tag"></i>
+                <div class="modal fade" id="proyecto_{{proyecto.id}}" tabindex="-1" role="dialog" aria-labelledby="proyecto_01_Label"  ng-repeat="proyecto in summary.competitions">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div ng-switch on="usedLanguage">
+                                    <h4 class="bold" ng-switch-when="en_EN">{{proyecto.title_en}}</h4>
+                                    <h4 class="bold" ng-switch-default>{{proyecto.title}}</h4>
+                                </div>
+                            </div>
 
-                            <span class="etiqueta">{{actividad.hashtag}}</span>
+                            <div class="modal-body">
+                                <img ng-src="http://images.collab-dev.com/300x/smart/slam/{{proyecto.cover_photo}}">
+                                <div class="mini_gap"></div>
+                                <div ng-switch on="usedLanguage">
+                                    <p ng-switch-when="en_EN"><strong>{{proyecto.description_en}}</strong></p>
+                                    <p ng-switch-default><strong>{{proyecto.description}}</strong></p>
+                                </div>
+                                <div ng-switch on="usedLanguage">
+                                    <p ng-switch-when="en_EN">{{proyecto.rules_en}}</p>
+                                    <p ng-switch-default>{{proyecto.rules}}</p>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
 
                         </div>
 
                     </div>
-
                 </div>
+
+
+
 
             </div>
 
 	
         </div>
-
-        <h4><strong><a href="" class="link_simple"><i class="fa fa-caret-right fa-fw"></i>Descargar programación completa</a></strong></h4>
 
 	    <div class="mini_gap"></div>
 
