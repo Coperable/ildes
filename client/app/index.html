@@ -110,6 +110,19 @@
                         </a>
                     </li>
 
+                    <li class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            {{descriptionLanguage()}}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href ng-click="selectLanguage('es_ES')">Español</a></li>
+                            <li><a href ng-click="selectLanguage('en_EN')">English</a></li>
+                        </ul>
+                    </li>
+
+
+
                     <li>
                         <a href="{{page.facebook_link}}" target="_blank">
                             <i class="fa fa-facebook"></i>
