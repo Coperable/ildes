@@ -350,5 +350,22 @@ angular.module('slamApp')
 
 
 })
+.factory('Contact',['$resource', 'api_host', function($resource, api_host){
+    return $resource(api_host+'/api/contacts/:id', { id:'@id' }, {
+        update: {
+            method: 'POST'
+        }
+    });
+}])
+.controller('ContactController', function ($scope, $timeout, $http, Contact) {
+    $scope.contact = new Contact(); 
+    $scope.is_sent = false;
 
+    $scope.send_contact = function() {
+        $scope.contact.$save(function(response) {
+            $scope.is_sent = true; 
+            $scope.contact = new Contact();
+        });
+    };
+})
 ;
