@@ -30,7 +30,7 @@ class SliderController extends Controller {
         $slider = new Slider;
 
         DB::transaction(function() use ($request, $slider, $user) {
-            $slider->type = $request->input('type');
+            $slider->type = 'SIMPLE';
             $slider->title = $request->input('title');
             $slider->subtitle = $request->input('subtitle');
             $slider->quote_author = $request->input('quote_author');
@@ -57,7 +57,7 @@ class SliderController extends Controller {
         $user = User::find($request['user']['sub']);
         $slider = Slider::find($id);
         DB::transaction(function() use ($request, $slider, $user) {
-            $slider->type = $request->input('type');
+            $slider->type = 'SIMPLE';
             $slider->title = $request->input('title');
             $slider->subtitle = $request->input('subtitle');
             $slider->quote_author = $request->input('quote_author');

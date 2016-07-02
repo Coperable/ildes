@@ -2,7 +2,7 @@
 
 angular.module('config', [])
 
-.constant('api_host', 'http://ildes.coperable.org')
+.constant('api_host', 'http://encuentrocomunes.com')
 
 .constant('instagram_token', '')
 

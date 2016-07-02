@@ -290,28 +290,30 @@
     <div class="mini_gap"></div>
 
 	<div class="row width_90 wow fadeInLeftBig">
-        <div class="container_proy media col-xs-12 col-sm-5 col-md-4 col-lg-3" ng-repeat="proyecto in summary.competitions">
+        <div class="container_proy col-xs-12 col-sm-5 col-md-4 col-lg-3" ng-repeat="proyecto in summary.competitions">
 
             <div class="tarjeta_proyectos">
                 <div class="image_box">
-                    <img ng-src="http://images.collab-dev.com/smart/slam/{{proyecto.cover_photo}}" class="image-responsive _media__image">
+                    <a href data-toggle="modal" data-target="#proyecto_{{proyecto.id}}">
+                        <img ng-src="http://images.collab-dev.com/smart/slam/{{proyecto.cover_photo}}" class="image-responsive">
+                    </a>
                 </div>
 
-                <a href data-toggle="modal" data-target="#proyecto_{{proyecto.id}}">
-                    <div class="media__body">
-                        <div class="info_box">
-                            <div ng-switch on="usedLanguage">
-                                <h4 class="bold" ng-switch-when="en_EN">{{proyecto.title_en}}</h4>
-                                <h4 class="bold" ng-switch-default>{{proyecto.title}}</h4>
-                            </div>
-                            <div ng-switch on="usedLanguage">
-                                <h5 ng-switch-when="en_EN">{{proyecto.description_en|words:10}}</h5>
-                                <h5 ng-switch-default>{{proyecto.description|words:10}}</h5>
-                            </div>
+                <div class="info_box">
+                    <a href data-toggle="modal" data-target="#proyecto_{{proyecto.id}}">
+                        <div ng-switch on="usedLanguage">
+                            <h4 class="bold" ng-switch-when="en_EN">{{proyecto.title_en}}</h4>
+                            <h4 class="bold" ng-switch-default>{{proyecto.title}}</h4>
                         </div>
+                    </a>
+                    <div ng-switch on="usedLanguage">
+                        <h5 ng-switch-when="en_EN">{{proyecto.description_en|words:10}}</h5>
+                        <h5 ng-switch-default>{{proyecto.description|words:10}}</h5>
                     </div>
-                </a>
+                </div>
             </div>
+
+
         </div>
 
 	</div>

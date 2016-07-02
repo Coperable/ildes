@@ -43,115 +43,16 @@ class RegionController extends Controller {
             }
         }
 
-        $espacios = Region::all();
-
         $participants = DB::table('users')->where('participant', '=', 1)->get();
 
-        $past_competitions = new Collection();
-        $next_competitions = new Collection();
-        $next_competition = array();
-        $competitions = array();
-
-        if($regionId == 1) {
-            $competitions = Competition::all();
-            $videos = DB::table('medias')->where('region_id', '<>', $region->id)->get();
-            $region->competitions = $competitions;
-        } else {
-            $competitions = $region->competitions;
-            $videos = DB::table('medias')->where('region_id', '=', $region->id)->get();
-        }
-        $competitions->each(function($competition) use ($past_competitions, $next_competitions, $participants, $user)  {
-            $competition->users->each(function($participant) use ($participants, $competition, $user) {
-                $participant->medias;
-                $participant->competitions;
-            });
-            $competition->location;
-            $competition->videos;
-            if (Carbon::now()->gte($competition->event_date)) {
-                $competition->past = true;
-                $past_competitions->push($competition);
-            } else {
-                $competition->past = false;
-                $next_competitions->push($competition);
-            }
-        });
-
-
-
-        $region->next_competition = $next_competitions->first();
-        $region->next_competitions = $next_competitions;
-        $region->past_competitions = $past_competitions;
-        $region->videos = $videos;
-        $region->videos_count  = count($videos);
+        $competitions = Competition::all();
+        $region->competitions = $competitions;
         $region->competitions_count = count($competitions);
         $region->participants = $participants;
         $region->participants_count = count($region->participants);
-        $region->espacios = $espacios;
     
         return $region;
 	}
-
-	public function _summary(Request $request, $regionId) {
-        $region = Region::find($regionId);
-
-        $user = false;
-        $token = $request->header('Authorization');
-		if ( $token )  {
-            if(isset($token[1])) {
-                $token = explode(' ', $request->header('Authorization'))[1];
-                $payload = (array) JWT::decode($token, Config::get('app.token_secret'), array('HS256'));
-                $user = User::find($payload['sub']);
-            }
-        }
-
-        $participants = new Collection();
-        $past_competitions = new Collection();
-        $next_competitions = new Collection();
-        $next_competition = array();
-        $competitions = array();
-
-        if($regionId == 1) {
-            $competitions = Competition::all();
-            $videos = DB::table('medias')->where('region_id', '<>', $region->id)->get();
-            $region->competitions = $competitions;
-        } else {
-            $competitions = $region->competitions;
-            $videos = DB::table('medias')->where('region_id', '=', $region->id)->get();
-        }
-        $competitions->each(function($competition) use ($past_competitions, $next_competitions, $participants, $user)  {
-            $competition->users->each(function($participant) use ($participants, $competition, $user) {
-                if($user && $user->id == $participant->id) {
-                    $competition->already_participating = true;
-                }
-                $participant->medias;
-                $participant->competitions;
-                $participants->push($participant);
-            });
-            $competition->location;
-            $competition->videos;
-            if (Carbon::now()->gte($competition->event_date)) {
-                $competition->past = true;
-                $past_competitions->push($competition);
-            } else {
-                $competition->past = false;
-                $next_competitions->push($competition);
-            }
-        });
-
-
-
-        $region->next_competition = $next_competitions->first();
-        $region->next_competitions = $next_competitions;
-        $region->past_competitions = $past_competitions;
-        $region->videos = $videos;
-        $region->videos_count  = count($videos);
-        $region->competitions_count = count($competitions);
-        $region->participants = $participants->unique();
-        $region->participants_count = count($region->participants);
-    
-        return $region;
-	}
-
 
 	public function store(Request $request) {
         $user = User::find($request['user']['sub']);

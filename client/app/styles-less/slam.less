@@ -1181,7 +1181,8 @@ nav {
 
 }
 
-.tarjeta_proyectos {
+.tarjeta_proyectos 
+{
 
     background-color: @color-light;
 
@@ -1194,6 +1195,8 @@ nav {
 
         color: @color-dark; 
     }
+
+    //padding: 20px 0 0 20px;
 
     //border: 1px solid @color-gris;
 
@@ -1211,7 +1214,7 @@ nav {
 
         border-radius: 0.6em 0.6em 0 0;
 
-        height: 400px; 
+        height: 200px; 
 
         position: relative;
 
@@ -1252,8 +1255,11 @@ nav {
 
     .info_box {
 
-        vertical-align: middle;
+        padding: 15px 20px 20px 20px;
+
         border-radius: 0 0 0.6em 0.6em;
+
+        border-top: solid 8px @color-gris-fondo; 
 
         h4 {
 
@@ -1269,65 +1275,12 @@ nav {
 
     }
 
-        .media {
-            /*display: inline-block;*/
-            position: relative;
-            vertical-align: middle;
-        }
+    .etiquetas {
 
-        .media__image { display: block; }
+        margin-bottom: 10px; 
 
-        .media__body {
-            padding: 15px;
-          background: rgba(255, 212, 76, 0.8);
-          bottom: 0;
-          left: 0;
-          top: 0;
-          right: 0;
-          opacity: 0;
-          overflow: hidden;
-          position: absolute;
-          text-align: center;
-          -webkit-transition: 0.6s;
-          transition: 0.6s;
-            vertical-align: middle;
-            border-radius: 0.6em; 
-        }
+    }
 
-        .media__body:hover { opacity: 1; }
-
-        .zrqvn__obql:nsgre,
-        .media__body:before {
-          background: rgba(255, 212, 76, 0.8);
-          content: '';
-          opacity: 0;
-          position: absolute;
-          -webkit-transform: scale(1.5);
-          -ms-transform: scale(1.5);
-          transform: scale(1.5);
-          -webkit-transition: 0.6s 0.2s;
-          transition: 0.6s 0.2s;
-            vertical-align: middle;
-            border-radius: 0.6em; 
-        }
-
-        .media__body:before {
-          border-bottom: none;
-          border-top: none;
-        }
-
-        .media__body:after {
-          border-left: none;
-          border-right: none;
-        }
-
-        .media__body:hover:after,
-        .media__body:hover:before {
-          -webkit-transform: scale(1);
-          -ms-transform: scale(1);
-          transform: scale(1);
-          opacity: 1;
-        }
 }
 
 
@@ -1689,7 +1642,7 @@ nav {
 
     text-align: center;
 
-    background-image: url('../images/IMG-ABOUT01.jpg');
+    /*background-image: url('../images/IMG-ABOUT01.jpg');*/
 
     background-position: center center;
 

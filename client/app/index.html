@@ -111,14 +111,8 @@
                     </li>
 
                     <li>
-                        <a data-target="http://facebook.com/minka" target="_blank">
+                        <a href="https://web.facebook.com/ILDES.ONG/" target="_blank">
                             <i class="fa fa-facebook"></i>
-                        </a>
-                    
-                    </li>
-                    <li>
-                        <a data-target="http://facebook.com/minka" target="_blank">
-                            <i class="fa fa-twitter"></i>
                         </a>
                     </li>
 
@@ -147,26 +141,14 @@
 
                         <h2 class="details inicial wow fadeInDown">
 
-                            Título
+                            ILDES
                         
                         </h2>
 
-                        <h3 class="details inicial wow fadeInDown">
-
-                            Subtítulo
-
-                        </h3>
-                        
-                        <div class="details wow fadeInUp">
-                        
-                            <p>
-                                Texto adicional
-                            </p>
-                        
-                        </div>
                         <div class="buttons ">
-                            <a class="btn btn_principal" href ng-click="scrollTo('acerca_de_posicion')" role="button">
-                                Conocer más </a>
+                            <a class="btn btn_principal" href ng-click="goSomos()" role="button">
+                                Conocer más 
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -176,7 +158,7 @@
             <div class="item" ng-repeat="slider in sliders" ng-cloak>
             
                 <div class="fill" style="background-image:url('http://images.collab-dev.com/slam/{{slider.cover_photo}}');"></div>
-                <div class="fill_mask" ng-if="slider.type == 'EVENT'">
+                <div class="fill_mask" ng-if="slider.type == 'SIMPLE'">
 
                     <div class="description ">
                         <h2 class="details inicial wow fadeInDown">
@@ -193,8 +175,9 @@
                             </p>
                         </div>
                         <div class="buttons ">
-                            <a class="btn btn_principal" href ng-click="scrollTo('acerca_de_posicion')" role="button">
-                                Conocer más </a>
+                            <a class="btn btn_principal" href ng-click="goSomos()" role="button">
+                                Conocer más 
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -345,7 +328,6 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/services/services.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
         <script src="scripts/filters/moment.js"></script>
         <script src="scripts/filters/truncate.js"></script>
         <script src="scripts/jquery.placepicker.js"></script>
