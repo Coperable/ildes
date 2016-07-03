@@ -67,6 +67,9 @@ class CompetitionController extends Controller {
             $competition->place = $request->input('place');
             */
             $competition->hashtag = $request->input('hashtag');
+            if(isset($competition->hashtag)) {
+                $competition->hashtag = preg_replace('#^https?://#', '', $competition->hashtag);
+            }
             $competition->facebook = $request->input('facebook');
             $competition->twitter = $request->input('twitter');
             $competition->instagram = $request->input('instagram');
@@ -115,6 +118,13 @@ class CompetitionController extends Controller {
             */
             $competition->rules = $request->input('rules');
             $competition->rules_en = $request->input('rules_en');
+
+            $competition->hashtag = $request->input('hashtag');
+            if(isset($competition->hashtag)) {
+                $competition->hashtag = preg_replace('#^https?://#', '', $competition->hashtag);
+            }
+
+            $competition->facebook = $request->input('facebook');
             /*
             $arr = explode(".", $request->input('event_date'), 2);
             $event_date = str_replace("T", " ", $arr[0]);

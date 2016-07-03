@@ -146,6 +146,7 @@ class ParticipantController extends Controller {
 
 	public function destroy($id) {
         DB::table('users_competitions')->where('user_id', '=', $id)->delete();
+        DB::table('users_roles')->where('user_id', '=', $id)->delete();
         User::destroy($id);
 	}
 
