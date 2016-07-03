@@ -182,7 +182,7 @@
 	<div id="carousel_EQUIPO" class="carousel slide" data-ride="carousel">
 
 		<!-- Wrapper for slides -->
-		<div class="carousel-inner width_80 " role="listbox">
+		<div class="carousel-inner width_80" role="listbox">
 
 			<div ng-repeat="lap in lap_participants" class="item {{$index == 0 ? 'active' : ''}}">
 
@@ -207,8 +207,9 @@
 
 			            </div>
 
+			        </div>
 
-                        <div class="modal fade" id="member_{{invitado.id}}" tabindex="-1" role="dialog" aria-labelledby="miembro_01_Label">
+                        <div class="modal fade" id="member_{{invitado.id}}" tabindex="-1" role="dialog" aria-labelledby="miembro_01_Label"  ng-repeat="invitado in random_participants">
                             <div class="modal-dialog" role="document">
 
                                 <div class="modal-content">
@@ -256,8 +257,6 @@
 
 
 
-
-			        </div>
 
 				</div>
 
