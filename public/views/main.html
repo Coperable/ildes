@@ -182,7 +182,7 @@
 	<div id="carousel_EQUIPO" class="carousel slide" data-ride="carousel">
 
 		<!-- Wrapper for slides -->
-		<div class="carousel-inner width_80 " role="listbox">
+		<div class="carousel-inner width_80" role="listbox">
 
 			<div ng-repeat="lap in lap_participants" class="item {{$index == 0 ? 'active' : ''}}">
 
@@ -195,9 +195,7 @@
 			                <div class="image_box">
 
 			                    <a href data-toggle="modal" data-target="#member_{{invitado.id}}">
-
                                     <img ng-src="http://images.collab-dev.com/600x600/smart/ildes/{{invitado.cover_photo}}" class="image-responsive">
-			                        
 			                    </a>
 			                    
 			                </div>
@@ -207,57 +205,9 @@
 
 			            </div>
 
-
-                        <div class="modal fade" id="member_{{invitado.id}}" tabindex="-1" role="dialog" aria-labelledby="miembro_01_Label">
-                            <div class="modal-dialog" role="document">
-
-                                <div class="modal-content">
-
-                                    <div class="modal-header">
-
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-
-                                            <span aria-hidden="true">&times;</span>
-
-                                        </button>
-
-                                        <h4 class="modal-title" id="miembro_01_Label">
-                                            <strong>
-                                            {{invitado.name}} {{invitado.lastname}}
-                                            </strong>
-                                        </h4>
-
-                                    </div>
-
-                                    <div class="modal-body">
-
-                                        <img ng-src="http://images.collab-dev.com/600x600/smart/ildes/{{invitado.cover_photo}}" class="image-responsive">
-                                        <div class="mini_gap"></div>
-
-                                        <div ng-switch on="usedLanguage">
-                                            <p ng-switch-when="en_EN" ng-bind-html="newlines(invitado.about_en)"></p>
-                                            <p ng-switch-default ng-bind-html="newlines(invitado.about)"></p>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="modal-footer">
-
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-
-
-
 			        </div>
+
+
 
 				</div>
 
@@ -288,6 +238,39 @@
 		</a>
 		
 	</div>
+
+
+
+    <div class="modal fade" id="member_{{invitado.id}}" tabindex="-1" role="dialog" aria-labelledby="miembro_01_Label"  ng-repeat="invitado in random_participants">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <h4 class="modal-title" id="miembro_01_Label">
+                        <strong> {{invitado.name}} {{invitado.lastname}} </strong>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <img ng-src="http://images.collab-dev.com/600x600/smart/ildes/{{invitado.cover_photo}}" class="image-responsive">
+                    <div class="mini_gap"></div>
+                    <div ng-switch on="usedLanguage">
+                        <p ng-switch-when="en_EN" ng-bind-html="newlines(invitado.about_en)"></p>
+                        <p ng-switch-default ng-bind-html="newlines(invitado.about)"></p>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
 
 	<div class="mini_gap"></div>
 
