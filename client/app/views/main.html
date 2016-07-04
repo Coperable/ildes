@@ -265,6 +265,14 @@
                     <div ng-switch on="usedLanguage">
                         <p ng-switch-when="en_EN" ng-bind-html="newlines(invitado.about_en)"></p>
                         <p ng-switch-default ng-bind-html="newlines(invitado.about)"></p>
+
+                        <p class="links" ng-show="invitado.instagram">
+                            <i class="fa fa-caret-right fa-fw"></i>
+                            <a class="link_simple" href="http://{{invitado.instagram}}" target="_blank">
+                                <strong>{{invitado.instagram}}</strong>
+                            </a>
+                        </p>
+
                     </div>
                 </div>
 
