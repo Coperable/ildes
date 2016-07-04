@@ -15,7 +15,7 @@
 
 		        <li class="active">
 
-		        	<a class="tab active text-uppercase" data-toggle="tab" role="button" data-target="#sectionA" translate="equipo">
+		        	<a class="tab active text-uppercase" data-toggle="tab" role="button" data-target="#sectionA" translate="somos">
 		        		SOMOS
 		        	</a>
 
@@ -254,7 +254,13 @@
                     </h4>
                 </div>
                 <div class="modal-body">
+                    <div>
                     <img ng-src="http://images.collab-dev.com/600x600/smart/ildes/{{invitado.cover_photo}}" class="image-responsive">
+                    <p ng-show="invitado.email">
+                        <i class="fa fa-envelope"></i>
+                        <strong>{{invitado.email}}</strong>
+                    </p>
+                    </div>
                     <div class="mini_gap"></div>
                     <div ng-switch on="usedLanguage">
                         <p ng-switch-when="en_EN" ng-bind-html="newlines(invitado.about_en)"></p>
@@ -263,7 +269,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" translate="cerrar">Close</button>
                 </div>
 
             </div>
