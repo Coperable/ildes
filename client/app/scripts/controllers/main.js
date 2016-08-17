@@ -33,7 +33,7 @@ angular.module('slamApp')
         $scope.lap_participants[lap] = [];
 
         _.each($scope.random_participants, function(model) {
-            if(count == 4) {
+            if(count == 6) {
                 lap = lap + 1;
                 count = 0;
                 $scope.lap_participants[lap] = [];
@@ -94,7 +94,7 @@ angular.module('slamApp')
         $scope.sliders = sliders;
         $timeout(function() {
             jQuery("#home_slider_main").carousel({
-                interval: 3000
+                interval: 5000
             });
         }, 0);
     });
