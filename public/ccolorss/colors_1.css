@@ -139,7 +139,8 @@ a:hover,
 
 .btn_principal:hover {
 
-    background-color: #e65a3f;
+    //background-color: #e65a3f;
+    opacity: 0.6;
 
     color: #fff;
 
@@ -226,7 +227,8 @@ figure.eventime_img figcaption::before,
 
 #sec_equipo .borde_superior {
 
-    background-color: #9ced97; 
+    /*background-color: #9ced97; */
+    background-color: #75C7C5;
 }
 
 
@@ -236,7 +238,8 @@ figure.eventime_img figcaption::before,
 
 #sec_proyectos .borde_superior {
 
-    background-color: #ffd44c; 
+    /*background-color: #ffd44c; */
+    background-color: #75C7C5;
 }
 
 /* ----------------- SECCIÓN CONTACTO  -------------------- */
